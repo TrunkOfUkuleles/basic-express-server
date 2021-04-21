@@ -1,14 +1,13 @@
-# LAB - Class 02
+### LAB - Class 02
 
 ## Project: Lab 02
-
-### Author: Julien Edwards
+## Author: Julien Edwards
 
 ### Links and Resources
 
-- [ci/cd](http://xyz.com) (GitHub Actions)
-- [back-end server url](http://xyz.com) (when applicable)
-- [front-end application](http://xyz.com) (when applicable)
+- [github](https://github.com/TrunkOfUkuleles/basic-express-server)
+- [back-end server url](https://basic-expresserueny.herokuapp.com) 
+
 
 ### Setup
 
@@ -16,19 +15,19 @@
 
 i.e.
 
-- `PORT` - Port Number
-- `MONGODB_URI` - URL to the running mongo instance/db
+- `PORT` - 3000 || 3333
+
 
 #### How to initialize/run your application (where applicable)
 
-- e.g. `npm start`
+- `npm run start`
 
 #### Tests
 
-- How do you run tests?
-- Any tests of note?
-- Describe any tests that you did not complete, skipped, etc
+- Testing was split between serevr and middleware. using supertest to ping the server with different requests to test the responses.
 
 #### UML / Application Wiring Diagram
 
 Link to an image of the UML for your application and response to events
+
+![UML](./assets/IMG_5763.jpg)
