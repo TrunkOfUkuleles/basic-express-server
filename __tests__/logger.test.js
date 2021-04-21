@@ -1,3 +1,4 @@
+'use strict';
 
 const loggerMiddleware = require('../src/middleware/logger.js');
 

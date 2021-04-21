@@ -1,7 +1,7 @@
 'use strict';
 
-const validator = (error, req, res, next) => {
-   req.query.name ? next() : next(500)
+const validator = (req, res, next) => {
+   req.query["name"] ? next() : next(500)
 }
 
 module.exports = validator;

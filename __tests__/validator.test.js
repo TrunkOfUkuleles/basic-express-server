@@ -1,10 +1,20 @@
 'use strict'
 
-const validator = require('../src/middleware/validator');
+const validator = require('../src/middleware/validator.js');
 const supertest = require('supertest');
-const mockRequest = supertest(validator)
+const mockRequest = supertest(validator);
 
-return mockRequest.get('/person').then(data => {
-    expect(data.status).toBe(500);
+describe ("validator test" , () => {
+    
+    it('should send 500 if no name submitted', async () => {
+    mockRequest.get('/person?notName=notFred').then(data => {
+    expect(data.status).toBe(500);})
+    })
+    
+    it('should send 200 if name is there', async () => {
+        mockRequest.get('/person?name=Fred').then(data => {
+        expect(data.status).toBe(200);
+        })
+    })
 
 })

@@ -1,7 +1,9 @@
 'use strict';
 
-return mockRequest.get('/no-thing').then(data => {
-    expect(data.status).toBe(404);
+const server = require('../src/server.js');
+const supertest = require('supertest');
+const mockRequest = supertest(server);
+
 
 describe('WEB SERVER:', () => {
 
@@ -24,5 +26,4 @@ describe('WEB SERVER:', () => {
 //     expect(response.text).toBe('hello world!'); // test your output
 //     // HINT: test for shape/type of data
 //   })
-})
 });
