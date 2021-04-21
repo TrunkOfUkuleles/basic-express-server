@@ -1,12 +1,11 @@
-# LAB - Class 02
+### LAB - Class 02
 
 ## Project: Lab 02
-
-### Author: Julien Edwards
+## Author: Julien Edwards
 
 ### Links and Resources
 
-- [ci/cd](http://xyz.com) (GitHub Actions)
+- [github](https://github.com/TrunkOfUkuleles/basic-express-server)
 - [back-end server url](https://basic-expresserueny.herokuapp.com) 
 
 
@@ -30,3 +29,5 @@ i.e.
 #### UML / Application Wiring Diagram
 
 Link to an image of the UML for your application and response to events
+
+![UML](./assets/IMG_5763.jpg)
