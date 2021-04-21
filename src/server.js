@@ -5,27 +5,22 @@ const app = express();
 
 const notHere = require("./error-handlers/404.js");
 const errors = require("./error-handlers/500.js");
+
 const logger = require("./middleware/logger.js");
 const validator = require("./middleware/validator.js");
 
+const bookRoute = require("./routes/book-route.js")
+
+const snackRoute = require("./routes/snack-route.js")
+
 app.use(express.json());
 app.use(logger);
+app.use(bookRoute);
+app.use(snackRoute);
 
 app.get("/", (req, res) => {
   res.status(200).send("here we go again");
 });
-
-app.get('/hello', (req, res) => {
-    console.log(req.query); // { name: 'brian', cool: 'fun'}
-    res.send('hello world!');
-  });
-
-app.get("/person", validator, (req, res) => {
-  // if (req.status === 500){res.status(500).send('no workie')}
-  let build = { name: `${req.query.name}` };
-  res.status(200).send(build);
-});
-
 
 
 //error
