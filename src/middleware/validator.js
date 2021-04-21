@@ -1,7 +1,12 @@
 'use strict';
 
 const validator = (req, res, next) => {
-   req.query["name"] ? next() : next(500)
+   if (req.query.name){
+      next()
+   }else{
+      res.status(500).send("Gimme a NAME")
+   }
+
 }
 
 module.exports = validator;
