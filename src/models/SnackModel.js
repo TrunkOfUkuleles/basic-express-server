@@ -3,9 +3,12 @@
 const DaddyModel = require('./GenericModel.js')
 
 class SnackModel extends DaddyModel {
+
     constructor(props){
-        super(props);
-        this.snackDB = [],
+        super(props)
+        this.state = {
+            snackDB: [],
+        }
     }
 
     create(obj){
@@ -15,37 +18,40 @@ class SnackModel extends DaddyModel {
             title: obj.title,
             author: obj.author,
         }
-        this.snackDB.push(record)
+        this.setState({snackDB: [...this.state.snackDB, record]})
         return record
     }
 
     read(id){
         if (id) {
-            return this.snackDB.find(record => record.id === id)
+            return this.state.snackDB.find(record => record.id === id)
         } else {
-            return this.snackDB;
+            return this.state.snackDB;
         }
     }
 
     update(id, obj){
         if (id) {
-            this.snackDB = this.snackDB.filter(el => {
+        let updated = this.state.snackDB.filter(el => {
                 if (el.id === id ){
                     return obj
                 }
                 return el
             })
-            
+            this.setState({snackDB: updated})
+            return "UPDATED"
         }
     }
 
     delete(id){
         if (id) {
-            this.snackDB = this.snackDB.filter(el => {
+            let updated = this.state.snackDB.filter(el => {
                 if (el.id !== id ){
                     return el
                 }
             })
+            this.setState({snackDB: updated})
+            return "DELETED"
         }
     }
     

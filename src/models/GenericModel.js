@@ -1,15 +1,17 @@
 'use strict';
 
-class GenericModel {
+const React = require('react');
+
+
+class GenericModel extends React.Component {
     constructor(){
-        this.id = 0,
-        this.createdAt = newDate(),
+        this.id = 0;
+        this.createdAt = new Date();
+
     }
 
 
 
 }
-
-
 
 module.exports = GenericModel

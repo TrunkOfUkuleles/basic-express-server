@@ -9,14 +9,15 @@ const errors = require("./error-handlers/500.js");
 const logger = require("./middleware/logger.js");
 const validator = require("./middleware/validator.js");
 
-const bookRoute = require("./routes/book-route.js")
-
-const snackRoute = require("./routes/snack-route.js")
+const testRoute = require('./routes/test-route.js')
+// const bookRoute = require("./routes/book-route.js");
+// const snackRoute = require("./routes/snack-route.js");
 
 app.use(express.json());
 app.use(logger);
-app.use(bookRoute);
-app.use(snackRoute);
+// app.use(bookRoute, validator);
+// app.use(snackRoute);
+app.use(testRoute, validator)
 
 app.get("/", (req, res) => {
   res.status(200).send("here we go again");

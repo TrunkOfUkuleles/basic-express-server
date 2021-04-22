@@ -1,11 +1,15 @@
 'use strict';
 
+
+
 const DaddyModel = require('./GenericModel.js')
 
 class BookModel extends DaddyModel {
     constructor(props){
-        super(props);
-        this.bookDB = [],
+        super(props)
+        this.state = {
+        bookDB: [],
+        }
     }
 
     create(obj){
@@ -15,43 +19,47 @@ class BookModel extends DaddyModel {
             title: obj.title,
             author: obj.author,
         }
-        this.bookDB.push(record)
+        // this.state.bookDB.push(record)
+        this.setState({bookDB: [...this.state.bookDB, record]})
         return record
     }
 
     read(id){
         if (id) {
-            return this.bookDB.find(record => record.id === id)
+            return this.state.bookDB.find(record => record.id === id)
         } else {
-            return this.bookDB;
+            return this.state.bookDB;
         }
     }
 
     update(id, obj){
         if (id) {
-            this.bookDB = this.bookDB.filter(el => {
+            let newDB = this.state.bookDB.filter(el => {
                 if (el.id === id ){
                     return obj
                 }
                 return el
             })
+            this.setState({bookDB: newDB  })
             return "Updated"
         }
-
+        return null;
     }
 
     delete(id){
         if (id) {
-            this.bookDB = this.bookDB.filter(el => {
+            let lesserDB = this.state.bookDB.filter(el => {
                 if (el.id !== id ){
                     return el
                 }
             })
+            this.setState({bookDB: lesserDB})
             return "DELETED"
         }
+        return null;
     }
     
 
 }
 
-module.exports = BookModel
+module.exports = BookModel;

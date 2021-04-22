@@ -17,7 +17,25 @@ describe('WEB SERVER:', () => {
     return mockRequest.get('/person?notName=notFred').then(data => {
         expect(data.status).toBe(500);
 });
-  })
+  });
+
+  it('sould get all from DB', async () => {
+    return mockRequest.get('/books').then(data => {
+      expect(data.status).toBe(200);
+    });
+  });
+
+  it('sould create a new item in the DB', async () => {
+    return mockRequest.get('/books').send({title: "Test1", author: "testMan"}).then(data => {
+      expect(data.title).toEqual("Test1")
+    });
+  });
+
+  it('sould create a new item in the DB', async () => {
+    return mockRequest.get('/books').send({title: "Test1", author: "testMan"}).then(data => {
+      expect(data.title).toEqual("Test1")
+    });
+  });
 
 
 //   it('should respond properly to a GET: /hello', async () => {
