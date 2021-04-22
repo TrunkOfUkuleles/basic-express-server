@@ -10,11 +10,11 @@ const snackRouter = express.Router();
 // RESTful routes
 
 // http://localhost:3333/things
-router.get('/books', getBooks);
-router.get('/books/:id', getOneBook);
-router.post('/books', createBook)
-router.put('/books/:id', updateBook);
-router.delete('/books/:id', deleteBook);
+router.get('/snacks', getBooks);
+router.get('/snacks/:id', getOneBook);
+router.post('/snacks', createBook)
+router.put('/snacks/:id', updateBook);
+router.delete('/snacks/:id', deleteBook);
 
 // RESTful route handlers
 

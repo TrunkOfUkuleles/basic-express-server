@@ -18,37 +18,40 @@ describe('WEB SERVER:', () => {
         expect(data.status).toBe(500);
 });
   });
-
-  it('sould get all from DB', async () => {
-    return mockRequest.get('/books').then(data => {
-      expect(data.status).toBe(200);
-    });
+  
+  it('should create a new item in the DB', async () => {
+    const ressy = await mockRequest.post('/books').send({title: "Test1", author: "testMan1"})
+    expect(ressy.req.data).toEqual("Test1")
+   
   });
 
-  it('sould create a new item in the DB', async () => {
-    return mockRequest.post('/books').send({title: "Test1", author: "testMan1"}).then(data => {
-      expect(data.title).toEqual("Test1")
-    });
+  it('should get all from DB', async () => {
+    let db = await mockRequest.get('/books')
+    expect(db.req.data.length).toEqual(1);
+
   });
 
-  it('sould get one item from the DB', async () => {
-    return mockRequest.get('/books/0').then(data => {
-      expect(data.title).toEqual("Test1")
-    });
+  
+
+  it('should get one item from the DB', async () => {
+    let getter = await mockRequest.get('/books/0')
+    expect(getter.req.data.title).toEqual("Test1")
+    
   });
 
  
 
-  it('sould update an item in the DB', async () => {
-    return mockRequest.put('/books/0').send({title: "Test1updated", author: "testMan1updated"}).then(data => {
-      expect(data.title).toEqual("Test1updated")
+  it('should update an item in the DB', async () => {
+     mockRequest.put('/books/0').send({title: "Test1updated", author: "testMan1updated"})
+      return mockRequest.get('/books/0').then(data=>{
+        expect(data.req.data.author).toEqual("testMan1updated")
     });
   });
 
-  it('sould delete an item in the DB', async () => {
+  it('should delete an item in the DB', async () => {
     mockRequest.delete('/books/1')
     return mockRequest.get('/books/0').then(data=>{
-      expect(data).toEqual({})
+      expect(data.req.data).toEqual(undefined)
   });
 
 //   it('should respond properly to a GET: /hello', async () => {
