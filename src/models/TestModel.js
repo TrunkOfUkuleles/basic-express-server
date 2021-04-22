@@ -24,7 +24,7 @@ class TestModel{
 
     read(id){
         if (id) {
-            return thisdb.find(record => record.id === id)
+            return this.db.find(record => record.id === id)
         } else {
             return this.db;
         }
