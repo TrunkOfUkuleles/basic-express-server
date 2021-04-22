@@ -5,8 +5,8 @@
 
 ### Links and Resources
 
-- [github](https://github.com/TrunkOfUkuleles/basic-express-server)
-- [back-end server url](https://basic-expresserueny.herokuapp.com) 
+- [github](https://github.com/TrunkOfUkuleles/basic-express-server/pull/2)
+- [Testing](https://github.com/TrunkOfUkuleles/basic-express-server/actions/runs/769292720) 
 
 
 ### Setup
