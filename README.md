@@ -1,21 +1,25 @@
 ### LAB - Class 02
 
-## Project: Lab 02
+## Project: Lab 02/03
 ## Author: Julien Edwards
 
 ### Links and Resources
 
+
+02
+
 - [github](https://github.com/TrunkOfUkuleles/basic-express-server/pull/2)
 - [Testing](https://github.com/TrunkOfUkuleles/basic-express-server/actions/runs/769292720) 
 
+03
+- [github]()
+- [Testing](https://github.com/TrunkOfUkuleles/basic-express-server/actions) 
 
 ### Setup
 
 #### `.env` requirements (when applicable)
 
-i.e.
-
-- `PORT` - 3000 || 3333
+- `PORT` = 3000 || 3333
 
 
 #### How to initialize/run your application (where applicable)
@@ -30,4 +34,10 @@ i.e.
 
 Link to an image of the UML for your application and response to events
 
-![UML](./assets/IMG_5763.jpg)
+
+02
+![Class 02 UML](./assets/IMG_5763.jpg)
+
+03
+![Class 03 UML](./assets/class03UML.jpg)
+
