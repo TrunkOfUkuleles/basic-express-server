@@ -26,17 +26,30 @@ describe('WEB SERVER:', () => {
   });
 
   it('sould create a new item in the DB', async () => {
-    return mockRequest.get('/books').send({title: "Test1", author: "testMan"}).then(data => {
+    return mockRequest.post('/books').send({title: "Test1", author: "testMan1"}).then(data => {
       expect(data.title).toEqual("Test1")
     });
   });
 
-  it('sould create a new item in the DB', async () => {
-    return mockRequest.get('/books').send({title: "Test1", author: "testMan"}).then(data => {
+  it('sould get one item from the DB', async () => {
+    return mockRequest.get('/books/0').then(data => {
       expect(data.title).toEqual("Test1")
     });
   });
 
+ 
+
+  it('sould update an item in the DB', async () => {
+    return mockRequest.put('/books/0').send({title: "Test1updated", author: "testMan1updated"}).then(data => {
+      expect(data.title).toEqual("Test1updated")
+    });
+  });
+
+  it('sould delete an item in the DB', async () => {
+    mockRequest.delete('/books/1')
+    return mockRequest.get('/books/0').then(data=>{
+      expect(data).toEqual({})
+  });
 
 //   it('should respond properly to a GET: /hello', async () => {
 //     const response = await mockRequest.get('/hello');
@@ -44,4 +57,5 @@ describe('WEB SERVER:', () => {
 //     expect(response.text).toBe('hello world!'); // test your output
 //     // HINT: test for shape/type of data
 //   })
-});
+})
+})
